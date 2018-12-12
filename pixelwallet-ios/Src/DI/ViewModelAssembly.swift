@@ -24,5 +24,9 @@ final class ViewModelAssembly: Assembly {
                 resolver.resolve(KeychainStorage.self)!
             ))
         }
+
+        container.register(AddWalletViewModel.self) { resolver in
+            return AddWalletViewModel()
+        }
     }
 }

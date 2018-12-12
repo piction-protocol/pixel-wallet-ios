@@ -20,3 +20,9 @@ extension WalletItemViewController {
         return Container.shared.resolve(WalletItemViewController.self)!
     }
 }
+
+extension AddWalletViewController {
+    static func make() -> AddWalletViewController {
+        return Container.shared.resolve(AddWalletViewController.self)!
+    }
+}
