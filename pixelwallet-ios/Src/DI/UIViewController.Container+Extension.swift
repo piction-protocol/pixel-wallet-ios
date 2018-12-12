@@ -38,3 +38,15 @@ extension ImportWalletViewController {
         return Container.shared.resolve(ImportWalletViewController.self)!
     }
 }
+
+extension WalletInfoViewController {
+    static func make() -> WalletInfoViewController {
+        return Container.shared.resolve(WalletInfoViewController.self)!
+    }
+}
+
+extension AddWalletCompleteViewController {
+    static func make() -> AddWalletCompleteViewController {
+        return Container.shared.resolve(AddWalletCompleteViewController.self)!
+    }
+}
