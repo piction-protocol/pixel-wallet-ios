@@ -28,5 +28,12 @@ final class ViewModelAssembly: Assembly {
         container.register(AddWalletViewModel.self) { resolver in
             return AddWalletViewModel()
         }
+
+        container.register(SelectNetworkViewModel.self) { (resolver, type: AddWalletType) in
+            return SelectNetworkViewModel(dependency: (
+                resolver.resolve(WalletManagerProtocol.self)!,
+                type
+            ))
+        }
     }
 }

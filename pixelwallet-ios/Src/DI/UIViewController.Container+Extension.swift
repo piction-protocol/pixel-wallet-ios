@@ -26,3 +26,9 @@ extension AddWalletViewController {
         return Container.shared.resolve(AddWalletViewController.self)!
     }
 }
+
+extension SelectNetworkViewController {
+    static func make(type: AddWalletType) -> SelectNetworkViewController {
+        return Container.shared.resolve(SelectNetworkViewController.self, argument: type)!
+    }
+}
