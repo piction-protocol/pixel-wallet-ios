@@ -35,5 +35,11 @@ final class ViewControllerAssembly: Assembly {
             vc.viewModel = resolver.resolve(SelectNetworkViewModel.self, argument: type)!
             return vc
         }
+
+        container.register(ImportWalletViewController.self) { resolver in
+            let vc = Storyboard.ImportWallet.instantiate(ImportWalletViewController.self)
+            vc.viewModel = resolver.resolve(ImportWalletViewModel.self)!
+            return vc
+        }
     }
 }

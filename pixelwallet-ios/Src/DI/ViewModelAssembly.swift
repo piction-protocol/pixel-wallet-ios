@@ -35,5 +35,11 @@ final class ViewModelAssembly: Assembly {
                 type
             ))
         }
+
+        container.register(ImportWalletViewModel.self) { resolver in
+            return ImportWalletViewModel(dependency: (
+                resolver.resolve(KeychainStorage.self)!
+            ))
+        }
     }
 }
