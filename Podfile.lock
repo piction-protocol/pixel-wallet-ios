@@ -1,0 +1,48 @@
+PODS:
+  - Differentiator (3.1.0)
+  - KeychainAccess (3.1.2)
+  - RxAtomic (4.4.0)
+  - RxCocoa (4.4.0):
+    - RxSwift (~> 4.0)
+  - RxDataSources (3.1.0):
+    - Differentiator (~> 3.0)
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
+  - RxSwift (4.4.0):
+    - RxAtomic (~> 4.4)
+  - Swinject (2.5.0)
+  - ViewModelBindable (1.0.1):
+    - RxSwift (>= 4.0.0)
+
+DEPENDENCIES:
+  - KeychainAccess
+  - RxCocoa (~> 4.0)
+  - RxDataSources
+  - RxSwift (~> 4.0)
+  - Swinject
+  - ViewModelBindable
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Differentiator
+    - KeychainAccess
+    - RxAtomic
+    - RxCocoa
+    - RxDataSources
+    - RxSwift
+    - Swinject
+    - ViewModelBindable
+
+SPEC CHECKSUMS:
+  Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
+  KeychainAccess: b3816fddcf28aa29d94b10ec305cd52be14c472b
+  RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
+  RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
+  RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
+  RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
+  Swinject: 82cdb851f63f91bba974e3eca1d69780f2f7677e
+  ViewModelBindable: 9ea704fbc9a85f889f5d94b1237920dd4541fdef
+
+PODFILE CHECKSUM: 83196f349a8223f262a0d7d6bedd840b9b49365a
+
+COCOAPODS: 1.5.3
