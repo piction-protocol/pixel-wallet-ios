@@ -10,6 +10,12 @@ import Swinject
 
 final class ViewModelAssembly: Assembly {
     func assemble(container: Container) {
+
+        container.register(RootViewModel.self) { resolver in
+            return RootViewModel(dependency: (
+                resolver.resolve(KeychainStorage.self)!
+            ))
+        }
         
         container.register(WalletListViewModel.self) { resolver in
             return WalletListViewModel(dependency: (

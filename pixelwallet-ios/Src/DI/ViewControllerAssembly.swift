@@ -12,6 +12,12 @@ import UIKit
 final class ViewControllerAssembly: Assembly {
     func assemble(container: Container) {
 
+        container.register(RootViewController.self) { resolver in
+            let vc = RootViewController()
+            vc.viewModel = resolver.resolve(RootViewModel.self)!
+            return vc
+        }
+
         container.register(WalletListViewController.self) { resolver in
             let vc = Storyboard.WalletList.instantiate(WalletListViewController.self)
             vc.viewModel = resolver.resolve(WalletListViewModel.self)!

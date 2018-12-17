@@ -19,9 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 
         window = UIWindow(frame: UIScreen.main.bounds)
-        let rootView = WalletListViewController.make()
-        let navigationController = UINavigationController(rootViewController: rootView)
-        window?.rootViewController = navigationController
+        let rootView = RootViewController.make()
+        window?.rootViewController = UINavigationController(rootViewController: rootView)
         window?.backgroundColor = .white
         window?.makeKeyAndVisible()
 

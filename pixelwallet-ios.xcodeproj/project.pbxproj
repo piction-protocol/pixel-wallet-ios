@@ -67,6 +67,12 @@
 		43D37D7C21BFAFD0009C56B0 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D37D7B21BFAFD0009C56B0 /* Network.swift */; };
 		43D37D8021C0B298009C56B0 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D37D7F21C0B298009C56B0 /* UITableView+Extension.swift */; };
 		43D37D8221C0B2B7009C56B0 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D37D8121C0B2B7009C56B0 /* UICollectionView+Extension.swift */; };
+		43D37D9721C37685009C56B0 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D37D9621C37685009C56B0 /* TabBarController.swift */; };
+		43D37D9A21C37F40009C56B0 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D37D9921C37F40009C56B0 /* RootViewController.swift */; };
+		43D37D9C21C37F89009C56B0 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D37D9B21C37F89009C56B0 /* RootViewModel.swift */; };
+		43D37DAD21C3ABEF009C56B0 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D37DAC21C3ABEF009C56B0 /* SettingViewModel.swift */; };
+		43D37DAF21C3AC00009C56B0 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D37DAE21C3AC00009C56B0 /* SettingViewController.swift */; };
+		43D37DB221C3B362009C56B0 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43D37DB121C3B362009C56B0 /* Setting.storyboard */; };
 		7B553D777A4497C250E7BD19 /* Pods_pixelwallet_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F016E5FB5D8243E142384636 /* Pods_pixelwallet_ios.framework */; };
 /* End PBXBuildFile section */
 
@@ -135,6 +141,9 @@
 		43D37D7B21BFAFD0009C56B0 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		43D37D7F21C0B298009C56B0 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		43D37D8121C0B2B7009C56B0 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
+		43D37D9621C37685009C56B0 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		43D37D9921C37F40009C56B0 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		43D37D9B21C37F89009C56B0 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
 		9EFF5D805111390D8713B71E /* Pods-pixelwallet-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pixelwallet-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-pixelwallet-ios/Pods-pixelwallet-ios.release.xcconfig"; sourceTree = "<group>"; };
 		F016E5FB5D8243E142384636 /* Pods_pixelwallet_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pixelwallet_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -269,6 +278,8 @@
 		437A399521B4CA9E00191738 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				43D37D9821C37F1C009C56B0 /* Root */,
+				43D37D9321C375E5009C56B0 /* TabBar */,
 				43D37D7421BF8F97009C56B0 /* AddWalletComplete */,
 				43D37D6921BE5533009C56B0 /* WalletInfo */,
 				43D37D5121BE496F009C56B0 /* ImportWallet */,
@@ -372,6 +383,23 @@
 				43D37D7921BF8FD7009C56B0 /* AddWalletComplete.storyboard */,
 			);
 			path = AddWalletComplete;
+			sourceTree = "<group>";
+		};
+		43D37D9321C375E5009C56B0 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				43D37D9621C37685009C56B0 /* TabBarController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		43D37D9821C37F1C009C56B0 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				43D37D9921C37F40009C56B0 /* RootViewController.swift */,
+				43D37D9B21C37F89009C56B0 /* RootViewModel.swift */,
+			);
+			path = Root;
 			sourceTree = "<group>";
 		};
 		8CD1230917AB744D1484A63B /* Pods */ = {
@@ -576,6 +604,7 @@
 				43D37D4D21BE13F4009C56B0 /* AddWalletViewModel.swift in Sources */,
 				43464A3321B918D6006897E3 /* UITableView+Rx.swift in Sources */,
 				43464A2D21B8D626006897E3 /* InputAppliable.swift in Sources */,
+				43D37D9A21C37F40009C56B0 /* RootViewController.swift in Sources */,
 				43D37D7821BF8FC1009C56B0 /* AddWalletCompleteViewModel.swift in Sources */,
 				434649D221B51114006897E3 /* AppInfo.swift in Sources */,
 				43D37D4F21BE1671009C56B0 /* KeychainStorage.swift in Sources */,
@@ -586,6 +615,7 @@
 				43D37D6321BE4B5E009C56B0 /* SelectNetworkViewModel.swift in Sources */,
 				43464A0521B7B990006897E3 /* UtilityAssembly.swift in Sources */,
 				43464A3721B926BA006897E3 /* SharedSequence+Extension.swift in Sources */,
+				43D37D9721C37685009C56B0 /* TabBarController.swift in Sources */,
 				43D37D6D21BE5550009C56B0 /* WalletInfoViewModel.swift in Sources */,
 				437A39AB21B4D90D00191738 /* Storyboard.swift in Sources */,
 				43464A2B21B8D515006897E3 /* WalletItemCollectionViewCell.swift in Sources */,
@@ -600,6 +630,7 @@
 				43D37D5821BE49BA009C56B0 /* ImportWalletViewModel.swift in Sources */,
 				43464A3521B918ED006897E3 /* UICollectionVIew+Rx.swift in Sources */,
 				43464A1C21B8B001006897E3 /* WalletItemViewModel.swift in Sources */,
+				43D37D9C21C37F89009C56B0 /* RootViewModel.swift in Sources */,
 				434649FF21B7B1CA006897E3 /* InjectableViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

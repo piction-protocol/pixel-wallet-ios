@@ -9,6 +9,9 @@
 import UIKit
 
 public enum Storyboard: String {
+    case MainTabBar
+    case Setting
+
     /* Wallet */
     case WalletList
     case WalletItem

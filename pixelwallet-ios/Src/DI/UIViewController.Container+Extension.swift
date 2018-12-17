@@ -9,6 +9,12 @@
 import Swinject
 import UIKit
 
+extension RootViewController {
+    static func make() -> RootViewController {
+        return Container.shared.resolve(RootViewController.self)!
+    }
+}
+
 extension WalletListViewController {
     static func make() -> WalletListViewController {
         return Container.shared.resolve(WalletListViewController.self)!
