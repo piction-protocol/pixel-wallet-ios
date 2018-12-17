@@ -8,35 +8,48 @@
 
 import RxSwift
 import RxCocoa
+import EthereumKit
 
 final class WalletListViewModel: InjectableViewModel {
     typealias Dependency = (
-        KeychainStorage
+        RealmManager,
+        UpdaterProtocol
     )
 
-    private let keychain: KeychainStorage
+    private let realmManager: RealmManager
+    private let updater: UpdaterProtocol
 
     init(dependency: Dependency) {
-        (keychain) = dependency
+        (realmManager, updater) = dependency
     }
 
     struct Input {
-        let viewDidAppear: Driver<Void>
+        let viewWillAppear: Driver<Void>
+        let selectedIndexPath: Driver<IndexPath>
     }
 
     struct Output {
-        let openAddWallet: Driver<Void>
+        let navigationHide: Driver<Void>
+        let walletList: Driver<[WalletItemModel]>
+        let openWalletItem: Driver<IndexPath>
     }
 
     func build(input: Input) -> Output {
-        self.keychain.clearKeychain()
-        let openAddWallet = input.viewDidAppear
-            .filter { [weak self] _ in
-                return self?.keychain[.privateKey] == nil
-            }
+        let realm = realmManager
+        let walletList = Driver.merge(input.viewWillAppear, updater.refreshWalletList.asDriver(onErrorDriveWith: .empty()))
+            .flatMap { _ -> Driver<[WalletItemModel]> in
+                let list = realm.getWalletList()
+                return Driver.just(list)
+        }
+
+        let navigationHide = input.viewWillAppear
+
+        let openWalletItem = input.selectedIndexPath
 
         return Output(
-            openAddWallet: openAddWallet
+            navigationHide: navigationHide,
+            walletList: walletList,
+            openWalletItem: openWalletItem
         )
     }
 }

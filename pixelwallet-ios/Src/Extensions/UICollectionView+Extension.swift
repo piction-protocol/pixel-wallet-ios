@@ -9,14 +9,14 @@
 import UIKit
 
 enum CollectionViewReusableType: String {
-    case Header
-    case Footer
+    case header
+    case footer
 
     var typeName: String {
         switch self {
-        case .Header:
+        case .header:
             return UICollectionElementKindSectionHeader
-        case .Footer:
+        case .footer:
             return UICollectionElementKindSectionFooter
         }
     }

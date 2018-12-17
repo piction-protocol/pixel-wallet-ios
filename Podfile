@@ -14,6 +14,7 @@ pod 'Swinject'
 pod 'KeychainAccess'
 pod 'RxDataSources'
 pod 'RxRealm'
+pod 'SwiftyJSON', '~> 4.0'
 
 end
 
