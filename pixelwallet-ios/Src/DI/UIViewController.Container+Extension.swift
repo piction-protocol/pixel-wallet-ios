@@ -56,3 +56,9 @@ extension AddWalletCompleteViewController {
         return Container.shared.resolve(AddWalletCompleteViewController.self)!
     }
 }
+
+extension SettingViewController {
+    static func make() -> SettingViewController {
+        return Container.shared.resolve(SettingViewController.self)!
+    }
+}

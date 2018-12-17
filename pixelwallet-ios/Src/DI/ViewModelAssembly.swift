@@ -61,5 +61,9 @@ final class ViewModelAssembly: Assembly {
                 resolver.resolve(WalletManagerProtocol.self)!
             ))
         }
+
+        container.register(SettingViewModel.self) { resolver in
+            return SettingViewModel()
+        }
     }
 }
