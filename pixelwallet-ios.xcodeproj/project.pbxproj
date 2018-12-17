@@ -68,6 +68,7 @@
 		43D37D8021C0B298009C56B0 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D37D7F21C0B298009C56B0 /* UITableView+Extension.swift */; };
 		43D37D8221C0B2B7009C56B0 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D37D8121C0B2B7009C56B0 /* UICollectionView+Extension.swift */; };
 		43D37D8621C351CA009C56B0 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D37D8521C351CA009C56B0 /* RealmManager.swift */; };
+		43D37D8821C353C7009C56B0 /* WalletDatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D37D8721C353C7009C56B0 /* WalletDatabaseModel.swift */; };
 		43D37D9721C37685009C56B0 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D37D9621C37685009C56B0 /* TabBarController.swift */; };
 		43D37D9A21C37F40009C56B0 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D37D9921C37F40009C56B0 /* RootViewController.swift */; };
 		43D37D9C21C37F89009C56B0 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D37D9B21C37F89009C56B0 /* RootViewModel.swift */; };
@@ -143,6 +144,7 @@
 		43D37D7F21C0B298009C56B0 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		43D37D8121C0B2B7009C56B0 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		43D37D8521C351CA009C56B0 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		43D37D8721C353C7009C56B0 /* WalletDatabaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletDatabaseModel.swift; sourceTree = "<group>"; };
 		43D37D9621C37685009C56B0 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		43D37D9921C37F40009C56B0 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		43D37D9B21C37F89009C56B0 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 			children = (
 				43464A2F21B8D661006897E3 /* WalletItemModel.swift */,
 				43D37D7B21BFAFD0009C56B0 /* Network.swift */,
+				43D37D8721C353C7009C56B0 /* WalletDatabaseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -646,6 +649,7 @@
 				437A39AB21B4D90D00191738 /* Storyboard.swift in Sources */,
 				43464A2B21B8D515006897E3 /* WalletItemCollectionViewCell.swift in Sources */,
 				43464A4821BA6B61006897E3 /* UIView+Extension.swift in Sources */,
+				43D37D8821C353C7009C56B0 /* WalletDatabaseModel.swift in Sources */,
 				437A397D21B4C43500191738 /* AppDelegate.swift in Sources */,
 				43D37D6121BE4B4D009C56B0 /* SelectNetworkViewController.swift in Sources */,
 				43464A1E21B8B35D006897E3 /* BalanceStorage.swift in Sources */,
