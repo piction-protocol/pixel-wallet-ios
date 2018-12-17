@@ -41,5 +41,9 @@ final class UtilityAssembly: Assembly {
         container.register(KeychainStorage.self) { resolver in
             return KeychainStorage()
         }
+
+        container.register(RealmManager.self) { resolver in
+            return RealmManager()
+        }
     }
 }

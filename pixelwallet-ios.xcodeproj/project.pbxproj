@@ -67,6 +67,7 @@
 		43D37D7C21BFAFD0009C56B0 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D37D7B21BFAFD0009C56B0 /* Network.swift */; };
 		43D37D8021C0B298009C56B0 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D37D7F21C0B298009C56B0 /* UITableView+Extension.swift */; };
 		43D37D8221C0B2B7009C56B0 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D37D8121C0B2B7009C56B0 /* UICollectionView+Extension.swift */; };
+		43D37D8621C351CA009C56B0 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D37D8521C351CA009C56B0 /* RealmManager.swift */; };
 		43D37D9721C37685009C56B0 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D37D9621C37685009C56B0 /* TabBarController.swift */; };
 		43D37D9A21C37F40009C56B0 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D37D9921C37F40009C56B0 /* RootViewController.swift */; };
 		43D37D9C21C37F89009C56B0 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D37D9B21C37F89009C56B0 /* RootViewModel.swift */; };
@@ -141,6 +142,7 @@
 		43D37D7B21BFAFD0009C56B0 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		43D37D7F21C0B298009C56B0 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		43D37D8121C0B2B7009C56B0 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
+		43D37D8521C351CA009C56B0 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		43D37D9621C37685009C56B0 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		43D37D9921C37F40009C56B0 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		43D37D9B21C37F89009C56B0 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				43464A2621B8C30F006897E3 /* GethManager.swift */,
 				43464A4321BA4E2B006897E3 /* Updater.swift */,
 				43D37D4E21BE1671009C56B0 /* KeychainStorage.swift */,
+				43D37D8521C351CA009C56B0 /* RealmManager.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -512,9 +515,12 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-pixelwallet-ios/Pods-pixelwallet-ios-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
+				"${BUILT_PRODUCTS_DIR}/RxRealm/RxRealm.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
 				"${BUILT_PRODUCTS_DIR}/ViewModelBindable/ViewModelBindable.framework",
@@ -523,9 +529,12 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRealm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ViewModelBindable.framework",
@@ -629,6 +638,7 @@
 				43464A0921B7D089006897E3 /* UIButton+Extension.swift in Sources */,
 				43D37D5821BE49BA009C56B0 /* ImportWalletViewModel.swift in Sources */,
 				43464A3521B918ED006897E3 /* UICollectionVIew+Rx.swift in Sources */,
+				43D37D8621C351CA009C56B0 /* RealmManager.swift in Sources */,
 				43464A1C21B8B001006897E3 /* WalletItemViewModel.swift in Sources */,
 				43D37D9C21C37F89009C56B0 /* RootViewModel.swift in Sources */,
 				434649FF21B7B1CA006897E3 /* InjectableViewModel.swift in Sources */,

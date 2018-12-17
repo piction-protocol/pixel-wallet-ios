@@ -13,6 +13,7 @@ pod 'ViewModelBindable'
 pod 'Swinject'
 pod 'KeychainAccess'
 pod 'RxDataSources'
+pod 'RxRealm'
 
 end
 
