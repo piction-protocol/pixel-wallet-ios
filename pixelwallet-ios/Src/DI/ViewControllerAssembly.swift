@@ -24,7 +24,13 @@ final class ViewControllerAssembly: Assembly {
             return vc
         }
 
-        container.register(WalletItemViewController.self) { resolver in
+        container.register(NewWalletViewController.self) { resolver in
+            let vc = Storyboard.NewWallet.instantiate(NewWalletViewController.self)
+            vc.viewModel = resolver.resolve(NewWalletViewModel.self)!
+            return vc
+        }
+
+        container.register(WalletItemViewController.self) { (resolver, index: Int) in
             let vc = Storyboard.WalletItem.instantiate(WalletItemViewController.self)
             vc.viewModel = resolver.resolve(WalletItemViewModel.self)!
             return vc

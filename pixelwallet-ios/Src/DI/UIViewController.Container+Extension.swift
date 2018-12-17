@@ -21,6 +21,12 @@ extension WalletListViewController {
     }
 }
 
+extension NewWalletViewController {
+    static func make() -> NewWalletViewController {
+        return Container.shared.resolve(NewWalletViewController.self)!
+    }
+}
+
 extension WalletItemViewController {
     static func make() -> WalletItemViewController {
         return Container.shared.resolve(WalletItemViewController.self)!
