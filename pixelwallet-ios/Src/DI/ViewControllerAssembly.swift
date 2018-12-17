@@ -54,9 +54,9 @@ final class ViewControllerAssembly: Assembly {
             return vc
         }
 
-        container.register(WalletInfoViewController.self) { resolver in
+        container.register(WalletInfoViewController.self) { (resolver, index: Int) in
             let vc = Storyboard.WalletInfo.instantiate(WalletInfoViewController.self)
-            vc.viewModel = resolver.resolve(WalletInfoViewModel.self)!
+            vc.viewModel = resolver.resolve(WalletInfoViewModel.self, argument: index)!
             return vc
         }
 

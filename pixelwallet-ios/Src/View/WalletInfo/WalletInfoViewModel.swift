@@ -8,18 +8,21 @@
 
 import RxSwift
 import RxCocoa
+import SwiftyJSON
 
 final class WalletInfoViewModel: InjectableViewModel {
     typealias Dependency = (
         KeychainStorage,
-        WalletManagerProtocol
+        RealmManager,
+        Int
     )
 
-    let keychain: KeychainStorage
-    let wallet: WalletManagerProtocol
+    private let keychain: KeychainStorage
+    private let realm: RealmManager
+    private let walletIndex: Int
 
     init(dependency: Dependency) {
-        (keychain, wallet) = dependency
+        (keychain, realm, walletIndex) = dependency
     }
 
     struct Input {
@@ -27,20 +30,36 @@ final class WalletInfoViewModel: InjectableViewModel {
     }
 
     struct Output {
-        let address: Driver<String>
-        let privateKey: Driver<String?>
-        let network: Driver<Network>
+        let walletInfoItem: Driver<WalletInfoModel>
     }
 
     func build(input: Input) -> Output {
-        let address = self.wallet.address()
-        let privateKey = self.keychain[.privateKey]
-        let network = self.wallet.network
+        let index = self.walletIndex
+        let walletInfoItem = input.viewWillAppear
+            .flatMapLatest { [weak self] _ -> Driver<WalletInfoModel> in
+                do {
+                    var json: JSON
+
+                    let keychainData = self?.keychain[.privateKey]
+                    if let data = keychainData?.data(using: String.Encoding.utf8) {
+                        let dict = try JSONSerialization.jsonObject(with: data, options: [])
+                        json = JSON(dict)
+                    } else {
+                        json = JSON(keychainData)
+                    }
+                    let address = json["accounts"][index]["address"].stringValue
+                    let privateKey = json["accounts"][index]["privateKey"].stringValue
+
+                    let walletInfo = WalletInfoModel(address: address, privateKey: privateKey, network: .piction)
+                    return Driver.just(walletInfo)
+                } catch let error {
+                    print(error)
+                    return Driver.empty()
+                }
+            }
 
         return Output(
-            address: Driver.just(address),
-            privateKey: Driver.just(privateKey),
-            network: Driver.just(network)
+            walletInfoItem: walletInfoItem
         )
     }
 }

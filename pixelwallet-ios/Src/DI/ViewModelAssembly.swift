@@ -55,10 +55,11 @@ final class ViewModelAssembly: Assembly {
             ))
         }
 
-        container.register(WalletInfoViewModel.self) { resolver in
+        container.register(WalletInfoViewModel.self) { (resolver, index: Int) in
             return WalletInfoViewModel(dependency: (
                 resolver.resolve(KeychainStorage.self)!,
-                resolver.resolve(WalletManagerProtocol.self)!
+                resolver.resolve(RealmManager.self)!,
+                index
             ))
         }
 

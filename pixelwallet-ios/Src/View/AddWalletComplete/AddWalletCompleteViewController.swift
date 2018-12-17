@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import ViewModelBindable
 
-class AddWalletCompleteViewController: UIViewController {
+final class AddWalletCompleteViewController: UIViewController {
     var disposeBag = DisposeBag()
 
     @IBOutlet weak var walletInfoContainerView: UIView!
@@ -20,11 +20,13 @@ class AddWalletCompleteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let vc = WalletInfoViewController.make()
-        embed(vc, to: walletInfoContainerView)
-
         self.navigationItem.hidesBackButton = true
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+    }
+
+    private func embedWalletInfoController(index: Int) {
+        let vc = WalletInfoViewController.make(index: index)
+        embed(vc, to: walletInfoContainerView)
     }
 }
 
@@ -33,10 +35,18 @@ extension AddWalletCompleteViewController: ViewModelBindable {
 
     func bindViewModel(viewModel: ViewModel) {
         let input = AddWalletCompleteViewModel.Input(
+            viewWillAppear: rx.viewWillAppear.asDriver(),
             confirmButtonDidTap: confirmButton.rx.tap.asDriver()
         )
 
         let output = viewModel.build(input: input)
+
+        output
+            .embedWalletInfo
+            .drive(onNext: { [weak self] index in
+                self?.embedWalletInfoController(index: index)
+            })
+            .disposed(by: disposeBag)
 
         output
             .dismissViewController

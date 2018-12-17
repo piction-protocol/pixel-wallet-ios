@@ -52,8 +52,8 @@ extension ImportWalletViewController {
 }
 
 extension WalletInfoViewController {
-    static func make() -> WalletInfoViewController {
-        return Container.shared.resolve(WalletInfoViewController.self)!
+    static func make(index: Int) -> WalletInfoViewController {
+        return Container.shared.resolve(WalletInfoViewController.self, argument: index)!
     }
 }
 

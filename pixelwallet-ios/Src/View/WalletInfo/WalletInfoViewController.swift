@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import ViewModelBindable
 
-class WalletInfoViewController: UIViewController {
+final class WalletInfoViewController: UIViewController {
     var disposeBag = DisposeBag()
 
     @IBOutlet weak var networkLabel: UILabel!
@@ -31,23 +31,11 @@ extension WalletInfoViewController: ViewModelBindable {
         let output = viewModel.build(input: input)
 
         output
-            .address
-            .drive(onNext: { [weak self] address in
-                self?.accountLabel.text = address
-            })
-            .disposed(by: disposeBag)
-
-        output
-            .privateKey
-            .drive(onNext: { [weak self] privateKey in
-                self?.privateKeyLabel.text = privateKey
-            })
-            .disposed(by: disposeBag)
-
-        output
-            .network
-            .drive(onNext: { [weak self] network in
-                self?.networkLabel.text = network.description
+            .walletInfoItem
+            .drive(onNext: { [weak self] info in
+                self?.accountLabel.text = info.address
+                self?.privateKeyLabel.text = info.privateKey
+                self?.networkLabel.text = info.network.description
             })
             .disposed(by: disposeBag)
     }
