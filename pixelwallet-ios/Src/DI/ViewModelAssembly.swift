@@ -42,14 +42,16 @@ final class ViewModelAssembly: Assembly {
 
         container.register(SelectNetworkViewModel.self) { (resolver, type: AddWalletType) in
             return SelectNetworkViewModel(dependency: (
-                resolver.resolve(WalletManagerProtocol.self)!,
+                resolver.resolve(KeychainStorage.self)!,
+                resolver.resolve(RealmManager.self)!,
                 type
             ))
         }
 
         container.register(ImportWalletViewModel.self) { resolver in
             return ImportWalletViewModel(dependency: (
-                resolver.resolve(KeychainStorage.self)!
+                resolver.resolve(KeychainStorage.self)!,
+                resolver.resolve(RealmManager.self)!
             ))
         }
 
@@ -63,7 +65,9 @@ final class ViewModelAssembly: Assembly {
         container.register(AddWalletCompleteViewModel.self) { resolver in
             return AddWalletCompleteViewModel(dependency: (
                 resolver.resolve(KeychainStorage.self)!,
-                resolver.resolve(WalletManagerProtocol.self)!
+                resolver.resolve(WalletManagerProtocol.self)!,
+                resolver.resolve(UpdaterProtocol.self)!,
+                resolver.resolve(RealmManager.self)!
             ))
         }
 

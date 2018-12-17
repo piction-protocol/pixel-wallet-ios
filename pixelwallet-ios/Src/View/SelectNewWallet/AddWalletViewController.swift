@@ -16,7 +16,7 @@ enum AddWalletType: Int {
     case `import`
 }
 
-class AddWalletViewController: UITableViewController {
+final class AddWalletViewController: UITableViewController {
     var disposeBag = DisposeBag()
 
     @IBOutlet weak var closeButton: UIBarButtonItem!

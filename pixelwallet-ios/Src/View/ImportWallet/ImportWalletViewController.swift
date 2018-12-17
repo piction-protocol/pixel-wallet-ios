@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import ViewModelBindable
 
-class ImportWalletViewController: UIViewController {
+final class ImportWalletViewController: UIViewController {
     var disposeBag = DisposeBag()
 
     @IBOutlet weak var privateKeyTextField: UITextField!

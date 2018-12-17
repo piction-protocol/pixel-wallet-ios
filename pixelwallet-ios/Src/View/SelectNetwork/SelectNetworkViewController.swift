@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import ViewModelBindable
 
-class SelectNetworkViewController: UITableViewController {
+final class SelectNetworkViewController: UITableViewController {
     var disposeBag = DisposeBag()
 
     override func viewDidLoad() {
