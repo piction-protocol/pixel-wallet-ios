@@ -84,7 +84,11 @@ final class ViewModelAssembly: Assembly {
         }
 
         container.register(SettingViewModel.self) { resolver in
-            return SettingViewModel()
+            return SettingViewModel(dependency: (
+                resolver.resolve(RealmManager.self)!,
+                resolver.resolve(KeychainStorage.self)!,
+                resolver.resolve(UpdaterProtocol.self)!
+            ))
         }
     }
 }
