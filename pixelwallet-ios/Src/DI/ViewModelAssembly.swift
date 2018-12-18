@@ -28,6 +28,15 @@ final class ViewModelAssembly: Assembly {
             return NewWalletViewModel()
         }
 
+        container.register(WalletHistoryViewModel.self) { (resolver, index: Int) in
+            return WalletHistoryViewModel(dependency: (
+                resolver.resolve(WalletManagerProtocol.self)!,
+                resolver.resolve(BalanceStorageProtocol.self)!,
+                resolver.resolve(KeychainStorage.self)!,
+                index
+            ))
+        }
+
         container.register(WalletItemViewModel.self) { (resolver, index: Int) in
             return WalletItemViewModel(dependency: (
                 resolver.resolve(WalletManagerProtocol.self)!,

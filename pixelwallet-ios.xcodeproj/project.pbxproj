@@ -20,9 +20,9 @@
 		43464A0721B7C844006897E3 /* UIViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43464A0621B7C844006897E3 /* UIViewController+Rx.swift */; };
 		43464A0921B7D089006897E3 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43464A0821B7D089006897E3 /* UIButton+Extension.swift */; };
 		43464A0B21B7D0A9006897E3 /* BorderLineConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43464A0A21B7D0A9006897E3 /* BorderLineConfigurable.swift */; };
-		43464A1821B8AE34006897E3 /* WalletItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43464A1721B8AE33006897E3 /* WalletItemViewController.swift */; };
-		43464A1A21B8AE42006897E3 /* WalletItem.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43464A1921B8AE42006897E3 /* WalletItem.storyboard */; };
-		43464A1C21B8B001006897E3 /* WalletItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43464A1B21B8B001006897E3 /* WalletItemViewModel.swift */; };
+		43464A1821B8AE34006897E3 /* WalletHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43464A1721B8AE33006897E3 /* WalletHistoryViewController.swift */; };
+		43464A1A21B8AE42006897E3 /* WalletHistory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43464A1921B8AE42006897E3 /* WalletHistory.storyboard */; };
+		43464A1C21B8B001006897E3 /* WalletHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43464A1B21B8B001006897E3 /* WalletHistoryViewModel.swift */; };
 		43464A1E21B8B35D006897E3 /* BalanceStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43464A1D21B8B35D006897E3 /* BalanceStorage.swift */; };
 		43464A2021B8B4C2006897E3 /* WalletManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43464A1F21B8B4C2006897E3 /* WalletManager.swift */; };
 		43464A2221B8C108006897E3 /* EthereumKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43464A2121B8C108006897E3 /* EthereumKit.framework */; };
@@ -97,9 +97,9 @@
 		43464A0621B7C844006897E3 /* UIViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rx.swift"; sourceTree = "<group>"; };
 		43464A0821B7D089006897E3 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		43464A0A21B7D0A9006897E3 /* BorderLineConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderLineConfigurable.swift; sourceTree = "<group>"; };
-		43464A1721B8AE33006897E3 /* WalletItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletItemViewController.swift; sourceTree = "<group>"; };
-		43464A1921B8AE42006897E3 /* WalletItem.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WalletItem.storyboard; sourceTree = "<group>"; };
-		43464A1B21B8B001006897E3 /* WalletItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletItemViewModel.swift; sourceTree = "<group>"; };
+		43464A1721B8AE33006897E3 /* WalletHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletHistoryViewController.swift; sourceTree = "<group>"; };
+		43464A1921B8AE42006897E3 /* WalletHistory.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WalletHistory.storyboard; sourceTree = "<group>"; };
+		43464A1B21B8B001006897E3 /* WalletHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletHistoryViewModel.swift; sourceTree = "<group>"; };
 		43464A1D21B8B35D006897E3 /* BalanceStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceStorage.swift; sourceTree = "<group>"; };
 		43464A1F21B8B4C2006897E3 /* WalletManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletManager.swift; sourceTree = "<group>"; };
 		43464A2121B8C108006897E3 /* EthereumKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EthereumKit.framework; path = Carthage/Build/iOS/EthereumKit.framework; sourceTree = "<group>"; };
@@ -215,14 +215,14 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
-		43464A1621B7D848006897E3 /* WalletItem */ = {
+		43464A1621B7D848006897E3 /* WalletHistory */ = {
 			isa = PBXGroup;
 			children = (
-				43464A1721B8AE33006897E3 /* WalletItemViewController.swift */,
-				43464A1B21B8B001006897E3 /* WalletItemViewModel.swift */,
-				43464A1921B8AE42006897E3 /* WalletItem.storyboard */,
+				43464A1721B8AE33006897E3 /* WalletHistoryViewController.swift */,
+				43464A1B21B8B001006897E3 /* WalletHistoryViewModel.swift */,
+				43464A1921B8AE42006897E3 /* WalletHistory.storyboard */,
 			);
-			path = WalletItem;
+			path = WalletHistory;
 			sourceTree = "<group>";
 		};
 		43464A2E21B8D656006897E3 /* Model */ = {
@@ -300,7 +300,7 @@
 				43D37D9821C37F1C009C56B0 /* Root */,
 				43D37D9321C375E5009C56B0 /* TabBar */,
 				43464A3121B8E977006897E3 /* WalletList */,
-				43464A1621B7D848006897E3 /* WalletItem */,
+				43464A1621B7D848006897E3 /* WalletHistory */,
 				43D37DA621C3A961009C56B0 /* NewWallet */,
 				43D37DA921C3AB8D009C56B0 /* Setting */,
 				43D37D7421BF8F97009C56B0 /* AddWalletComplete */,
@@ -533,7 +533,7 @@
 			files = (
 				43D37D7A21BF8FD7009C56B0 /* AddWalletComplete.storyboard in Resources */,
 				43D37D9221C37438009C56B0 /* WalletList.storyboard in Resources */,
-				43464A1A21B8AE42006897E3 /* WalletItem.storyboard in Resources */,
+				43464A1A21B8AE42006897E3 /* WalletHistory.storyboard in Resources */,
 				43D37D6521BE4B69009C56B0 /* SelectNetwork.storyboard in Resources */,
 				43D37DA821C3A96F009C56B0 /* NewWallet.storyboard in Resources */,
 				43D37D6F21BE555B009C56B0 /* WalletInfo.storyboard in Resources */,
@@ -648,7 +648,7 @@
 				43464A4621BA4EE1006897E3 /* Notification.Name+Extension.swift in Sources */,
 				434649FA21B7ACD2006897E3 /* Container+Extension.swift in Sources */,
 				43464A2721B8C30F006897E3 /* GethManager.swift in Sources */,
-				43464A1821B8AE34006897E3 /* WalletItemViewController.swift in Sources */,
+				43464A1821B8AE34006897E3 /* WalletHistoryViewController.swift in Sources */,
 				434649FC21B7B03D006897E3 /* UIViewController.Container+Extension.swift in Sources */,
 				43D37D4B21BE1363009C56B0 /* AddWalletViewController.swift in Sources */,
 				43D37D8021C0B298009C56B0 /* UITableView+Extension.swift in Sources */,
@@ -690,7 +690,7 @@
 				43D37D5821BE49BA009C56B0 /* ImportWalletViewModel.swift in Sources */,
 				43464A3521B918ED006897E3 /* UICollectionVIew+Rx.swift in Sources */,
 				43D37D8621C351CA009C56B0 /* RealmManager.swift in Sources */,
-				43464A1C21B8B001006897E3 /* WalletItemViewModel.swift in Sources */,
+				43464A1C21B8B001006897E3 /* WalletHistoryViewModel.swift in Sources */,
 				43D37D9C21C37F89009C56B0 /* RootViewModel.swift in Sources */,
 				434649FF21B7B1CA006897E3 /* InjectableViewModel.swift in Sources */,
 			);

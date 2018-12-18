@@ -15,6 +15,7 @@ public enum Storyboard: String {
     /* Wallet */
     case WalletList
     case NewWallet
+    case WalletHistory
     case WalletItem
     case AddWallet
     case SelectNetwork
