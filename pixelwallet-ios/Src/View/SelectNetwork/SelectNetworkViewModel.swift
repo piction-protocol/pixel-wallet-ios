@@ -15,15 +15,17 @@ final class SelectNetworkViewModel: InjectableViewModel {
     typealias Dependency = (
         KeychainStorage,
         RealmManager,
+        UpdaterProtocol,
         AddWalletType
     )
 
     private var keychain: KeychainStorage
     private let realmManager: RealmManager
+    private let updater: UpdaterProtocol
     private let addWalletType: AddWalletType
 
     init(dependency: Dependency) {
-        (keychain, realmManager, addWalletType) = dependency
+        (keychain, realmManager, updater, addWalletType) = dependency
     }
 
     struct Input {
@@ -70,8 +72,9 @@ final class SelectNetworkViewModel: InjectableViewModel {
                         let accountCount = realm.getWalletCount()
                         realm.insertWalletItem(name: "My Account \(accountCount + 1)", address: address, network: .piction)
 
-                        print(json)
+                        self?.updater.refreshWallet.onNext(())
 
+                        print(json)
                     } catch let error {
                         print(error)
                     }

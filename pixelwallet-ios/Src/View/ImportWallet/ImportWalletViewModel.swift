@@ -14,14 +14,16 @@ import EthereumKit
 final class ImportWalletViewModel: InjectableViewModel {
     typealias Dependency = (
         KeychainStorage,
-        RealmManager
+        RealmManager,
+        UpdaterProtocol
     )
 
     private let keychain: KeychainStorage
     private let realmManager: RealmManager
+    private let updater: UpdaterProtocol
 
     init(dependency: Dependency) {
-        (keychain, realmManager) = dependency
+        (keychain, realmManager, updater) = dependency
     }
 
     struct Input {
@@ -68,6 +70,8 @@ final class ImportWalletViewModel: InjectableViewModel {
 
                     let accountCount = realm.getWalletCount()
                     realm.insertWalletItem(name: "My Account \(accountCount + 1)", address: address, network: .piction)
+
+                    self?.updater.refreshWallet.onNext(())
 
                     print(json)
                 } catch let error {

@@ -36,7 +36,7 @@ final class WalletListViewModel: InjectableViewModel {
 
     func build(input: Input) -> Output {
         let realm = realmManager
-        let walletList = Driver.merge(input.viewWillAppear, updater.refreshWalletList.asDriver(onErrorDriveWith: .empty()))
+        let walletList = Driver.merge(input.viewWillAppear, updater.refreshWallet.asDriver(onErrorDriveWith: .empty()))
             .flatMap { _ -> Driver<[WalletItemModel]> in
                 let list = realm.getWalletList()
                 return Driver.just(list)

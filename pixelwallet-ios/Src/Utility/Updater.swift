@@ -11,10 +11,12 @@ import RxCocoa
 
 protocol UpdaterProtocol {
     var refreshBalance: PublishSubject<Void> { get }
+    var refreshWallet: PublishSubject<Void> { get }
 }
 
 final class Updater: UpdaterProtocol {
     let refreshBalance = PublishSubject<Void>()
+    let refreshWallet = PublishSubject<Void>()
 
     private let disposeBag = DisposeBag()
 
@@ -26,6 +28,10 @@ final class Updater: UpdaterProtocol {
 
         ticker
             .drive(refreshBalance)
+            .disposed(by: disposeBag)
+
+        ticker
+            .drive(refreshWallet)
             .disposed(by: disposeBag)
     }
 }
