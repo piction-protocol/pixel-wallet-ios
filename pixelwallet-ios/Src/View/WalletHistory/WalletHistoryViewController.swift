@@ -28,7 +28,8 @@ extension WalletHistoryViewController: ViewModelBindable {
     func bindViewModel(viewModel: ViewModel) {
 
         let input = WalletHistoryViewModel.Input(
-            viewWillAppear: rx.viewWillAppear.asDriver()
+            viewWillAppear: rx.viewWillAppear.asDriver(),
+            refreshControlDidRefresh: refreshControl!.rx.controlEvent(.valueChanged).asDriver()
         )
 
         let output = viewModel.build(input: input)
@@ -46,6 +47,11 @@ extension WalletHistoryViewController: ViewModelBindable {
             .drive(onNext: { [weak self] index in
                 self?.embedWalletItemViewController(index: index)
             })
+            .disposed(by: disposeBag)
+
+        output
+            .isFetching
+            .drive(refreshControl!.rx.isRefreshing)
             .disposed(by: disposeBag)
     }
 }

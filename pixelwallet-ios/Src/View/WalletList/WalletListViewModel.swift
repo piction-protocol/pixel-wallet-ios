@@ -26,12 +26,14 @@ final class WalletListViewModel: InjectableViewModel {
     struct Input {
         let viewWillAppear: Driver<Void>
         let selectedIndexPath: Driver<IndexPath>
+        let refreshControlDidRefresh: Driver<Void>
     }
 
     struct Output {
         let navigationHide: Driver<Void>
         let walletList: Driver<[WalletItemModel]>
         let openWalletItem: Driver<IndexPath>
+        let isFetching: Driver<Bool>
     }
 
     func build(input: Input) -> Output {
@@ -46,10 +48,22 @@ final class WalletListViewModel: InjectableViewModel {
 
         let openWalletItem = input.selectedIndexPath
 
+        let refreshControlDidRefresh = input.refreshControlDidRefresh
+            .do(onNext: { [weak self] in
+                self?.updater.refreshWallet.onNext(())
+            })
+
+        let refreshWalletListAction = refreshControlDidRefresh
+            .flatMap { _ -> Driver<Action<[WalletItemModel]>> in
+                let list = Driver.just(realm.getWalletList())
+                return Action.makeDriver(list)
+            }
+
         return Output(
             navigationHide: navigationHide,
             walletList: walletList,
-            openWalletItem: openWalletItem
+            openWalletItem: openWalletItem,
+            isFetching: refreshWalletListAction.isExecuting
         )
     }
 }

@@ -16,6 +16,13 @@ final class WalletListViewController: UIViewController {
     var disposeBag = DisposeBag()
 
     @IBOutlet weak var collectionView: UICollectionView!
+    private lazy var refreshControl = UIRefreshControl()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        collectionView.addSubview(refreshControl)
+    }
 
     private func configureDataSource() -> RxCollectionViewSectionedReloadDataSource<SectionModel<String, WalletItemModel>> {
         return RxCollectionViewSectionedReloadDataSource<SectionModel<String, WalletItemModel>>(
@@ -57,7 +64,8 @@ extension WalletListViewController: ViewModelBindable {
 
         let input = WalletListViewModel.Input(
             viewWillAppear: rx.viewWillAppear.asDriver(),
-            selectedIndexPath: collectionView.rx.itemSelected.asDriver()
+            selectedIndexPath: collectionView.rx.itemSelected.asDriver(),
+            refreshControlDidRefresh: refreshControl.rx.controlEvent(.valueChanged).asDriver()
         )
 
         let output = viewModel.build(input: input)
@@ -82,6 +90,11 @@ extension WalletListViewController: ViewModelBindable {
             .drive(onNext: { [weak self] indexPath in
                 self?.openWalletHistory(index: indexPath.row)
             })
+            .disposed(by: disposeBag)
+
+        output
+            .isFetching
+            .drive(refreshControl.rx.isRefreshing)
             .disposed(by: disposeBag)
     }
 }

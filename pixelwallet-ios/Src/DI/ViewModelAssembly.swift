@@ -33,6 +33,7 @@ final class ViewModelAssembly: Assembly {
                 resolver.resolve(WalletManagerProtocol.self)!,
                 resolver.resolve(BalanceStorageProtocol.self)!,
                 resolver.resolve(KeychainStorage.self)!,
+                resolver.resolve(UpdaterProtocol.self)!,
                 index
             ))
         }

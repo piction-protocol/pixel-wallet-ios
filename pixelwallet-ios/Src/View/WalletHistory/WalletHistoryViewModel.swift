@@ -15,25 +15,29 @@ final class WalletHistoryViewModel: InjectableViewModel {
         WalletManagerProtocol,
         BalanceStorageProtocol,
         KeychainStorage,
+        UpdaterProtocol,
         Int
     )
 
     private var wallet: WalletManagerProtocol
     private let balanceStorage: BalanceStorageProtocol
     private let keychain: KeychainStorage
+    private let updater: UpdaterProtocol
     private let walletIndex: Int
 
     init(dependency: Dependency) {
-        (wallet, balanceStorage, keychain, walletIndex) = dependency
+        (wallet, balanceStorage, keychain, updater, walletIndex) = dependency
     }
 
     struct Input {
         let viewWillAppear: Driver<Void>
+        let refreshControlDidRefresh: Driver<Void>
     }
 
     struct Output {
         let navigationShow: Driver<Void>
         let embedWalletItemViewcontroller: Driver<Int>
+        let isFetching: Driver<Bool>
 //        let walletItems: Driver<[WalletItemSection]>
     }
 
@@ -44,6 +48,17 @@ final class WalletHistoryViewModel: InjectableViewModel {
         let embedWalletItemViewcontroller = input.viewWillAppear
             .flatMapLatest { _ -> Driver<Int> in
                 return Driver.just(index)
+            }
+
+        let refreshControlDidRefresh = input.refreshControlDidRefresh
+            .do(onNext: { [weak self] in
+                self?.updater.refreshWallet.onNext(())
+            })
+
+        let refreshWalletHistoryAction = refreshControlDidRefresh
+            .flatMap { _ -> Driver<Action<Void>> in
+                let item = Driver.just(())
+                return Action.makeDriver(item)
             }
 //        let address = Action.makeDriver(wallet.address()).elements
 //        let balance = Action.makeDriver(balanceStorage.balance).elements
@@ -79,7 +94,8 @@ final class WalletHistoryViewModel: InjectableViewModel {
 
         return Output(
             navigationShow: navigationShow,
-            embedWalletItemViewcontroller: embedWalletItemViewcontroller
+            embedWalletItemViewcontroller: embedWalletItemViewcontroller,
+            isFetching: refreshWalletHistoryAction.isExecuting
 //            walletItems: walletItems
         )
     }
