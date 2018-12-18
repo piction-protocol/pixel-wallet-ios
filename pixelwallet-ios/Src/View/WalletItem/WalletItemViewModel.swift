@@ -2,7 +2,7 @@
 //  WalletItemViewModel.swift
 //  pixelwallet-ios
 //
-//  Created by jhseo on 06/12/2018.
+//  Created by jhseo on 17/12/2018.
 //  Copyright © 2018 Piction Network. All rights reserved.
 //
 
@@ -12,17 +12,17 @@ import EthereumKit
 
 final class WalletItemViewModel: InjectableViewModel {
     typealias Dependency = (
-        WalletManagerProtocol,
         BalanceStorageProtocol,
-        KeychainStorage
+        RealmManager,
+        Int
     )
 
-    private var wallet: WalletManagerProtocol
     private let balanceStorage: BalanceStorageProtocol
-    private let keychain: KeychainStorage
+    private let realmManager: RealmManager
+    private let walletIndex: Int
 
     init(dependency: Dependency) {
-        (wallet, balanceStorage, keychain) = dependency
+        (balanceStorage, realmManager, walletIndex) = dependency
     }
 
     struct Input {
@@ -30,20 +30,17 @@ final class WalletItemViewModel: InjectableViewModel {
     }
 
     struct Output {
-        let walletItems: Driver<[WalletItemSection]>
+        let walletItems: Driver<WalletItemModel>
     }
 
     func build(input: Input) -> Output {
-        let name = Driver.just(wallet.name)
-        let address = Driver.just(wallet.address())
-        let balance = Action.makeDriver(balanceStorage.balance).elements
-        let network = Driver.just(wallet.network)
+        let realm = realmManager
+        let index = walletIndex
 
-        let walletItems = Driver.combineLatest(name, address, network, balance) {
-            return [
-                WalletItemSection.Section(title: "", items: [.Wallet(WalletItemModel(name: $0, address: $1, network: $2, balance: $3))]),
-                WalletItemSection.Section(title: "", items: [.Add])
-                ]
+        let walletItems = input.viewWillAppear
+            .flatMapLatest { _ -> Driver<WalletItemModel> in
+                let item = realm.getWalletItem(index: index)
+                return Driver.just(item)
         }
 
         return Output(
@@ -51,3 +48,4 @@ final class WalletItemViewModel: InjectableViewModel {
         )
     }
 }
+

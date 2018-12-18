@@ -47,6 +47,9 @@
 		437A39B121B4DF9800191738 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437A39B021B4DF9800191738 /* UIViewController+Extension.swift */; };
 		43B2AA1B21C798DC008E236E /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B2AA1A21C798DC008E236E /* UINavigationController+Extension.swift */; };
 		43B2AA1D21C79932008E236E /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B2AA1C21C79932008E236E /* UIImage+Extension.swift */; };
+		43B2AA2021C7A6E0008E236E /* WalletItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B2AA1F21C7A6E0008E236E /* WalletItemViewModel.swift */; };
+		43B2AA2221C7A750008E236E /* WalletItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B2AA2121C7A750008E236E /* WalletItemViewController.swift */; };
+		43B2AA2421C7A7AC008E236E /* WalletItem.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43B2AA2321C7A7AC008E236E /* WalletItem.storyboard */; };
 		43D37D4921BE1297009C56B0 /* AddWallet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43D37D4821BE1297009C56B0 /* AddWallet.storyboard */; };
 		43D37D4B21BE1363009C56B0 /* AddWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D37D4A21BE1363009C56B0 /* AddWalletViewController.swift */; };
 		43D37D4D21BE13F4009C56B0 /* AddWalletViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D37D4C21BE13F4009C56B0 /* AddWalletViewModel.swift */; };
@@ -127,6 +130,9 @@
 		439FAF2F522283EF5F6C294B /* Pods-pixelwallet-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pixelwallet-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pixelwallet-ios/Pods-pixelwallet-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		43B2AA1A21C798DC008E236E /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 		43B2AA1C21C79932008E236E /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		43B2AA1F21C7A6E0008E236E /* WalletItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletItemViewModel.swift; sourceTree = "<group>"; };
+		43B2AA2121C7A750008E236E /* WalletItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletItemViewController.swift; sourceTree = "<group>"; };
+		43B2AA2321C7A7AC008E236E /* WalletItem.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WalletItem.storyboard; sourceTree = "<group>"; };
 		43D37D4821BE1297009C56B0 /* AddWallet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddWallet.storyboard; sourceTree = "<group>"; };
 		43D37D4A21BE1363009C56B0 /* AddWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWalletViewController.swift; sourceTree = "<group>"; };
 		43D37D4C21BE13F4009C56B0 /* AddWalletViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWalletViewModel.swift; sourceTree = "<group>"; };
@@ -300,6 +306,7 @@
 				43D37D9821C37F1C009C56B0 /* Root */,
 				43D37D9321C375E5009C56B0 /* TabBar */,
 				43464A3121B8E977006897E3 /* WalletList */,
+				43B2AA1E21C7A694008E236E /* WalletItem */,
 				43464A1621B7D848006897E3 /* WalletHistory */,
 				43D37DA621C3A961009C56B0 /* NewWallet */,
 				43D37DA921C3AB8D009C56B0 /* Setting */,
@@ -356,6 +363,16 @@
 				437A39A921B4D7B100191738 /* Config */,
 			);
 			path = Src;
+			sourceTree = "<group>";
+		};
+		43B2AA1E21C7A694008E236E /* WalletItem */ = {
+			isa = PBXGroup;
+			children = (
+				43B2AA2121C7A750008E236E /* WalletItemViewController.swift */,
+				43B2AA1F21C7A6E0008E236E /* WalletItemViewModel.swift */,
+				43B2AA2321C7A7AC008E236E /* WalletItem.storyboard */,
+			);
+			path = WalletItem;
 			sourceTree = "<group>";
 		};
 		43D37D4721BE1284009C56B0 /* SelectNewWallet */ = {
@@ -531,6 +548,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43B2AA2421C7A7AC008E236E /* WalletItem.storyboard in Resources */,
 				43D37D7A21BF8FD7009C56B0 /* AddWalletComplete.storyboard in Resources */,
 				43D37D9221C37438009C56B0 /* WalletList.storyboard in Resources */,
 				43464A1A21B8AE42006897E3 /* WalletHistory.storyboard in Resources */,
@@ -678,9 +696,11 @@
 				43D37D8821C353C7009C56B0 /* WalletDatabaseModel.swift in Sources */,
 				437A397D21B4C43500191738 /* AppDelegate.swift in Sources */,
 				43D37D6121BE4B4D009C56B0 /* SelectNetworkViewController.swift in Sources */,
+				43B2AA2021C7A6E0008E236E /* WalletItemViewModel.swift in Sources */,
 				43464A1E21B8B35D006897E3 /* BalanceStorage.swift in Sources */,
 				434649EA21B7814D006897E3 /* UIApplication+Extension.swift in Sources */,
 				43D37DA521C3A7C1009C56B0 /* NewWalletViewModel.swift in Sources */,
+				43B2AA2221C7A750008E236E /* WalletItemViewController.swift in Sources */,
 				43B2AA1D21C79932008E236E /* UIImage+Extension.swift in Sources */,
 				43B2AA1B21C798DC008E236E /* UINavigationController+Extension.swift in Sources */,
 				43D37D6B21BE5545009C56B0 /* WalletInfoViewController.swift in Sources */,

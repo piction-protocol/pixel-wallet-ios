@@ -55,6 +55,19 @@ final class RealmManager: RealmManagerProtocol {
         return walletItems
     }
 
+    func getWalletItem(index: Int) -> WalletItemModel {
+        let result = realm.objects(WalletDatabaseModel.self)
+
+        var walletItems: [WalletItemModel] = []
+
+        result.forEach { model in
+            let item = WalletItemModel(name: model.name, address: model.address, network: Network(rawValue: model.network)!, balance: Balance(wei: 0))
+            walletItems.append(item)
+        }
+
+        return walletItems[index]
+    }
+
     func getWalletCount() -> Int {
         let result = realm.objects(WalletDatabaseModel.self)
 

@@ -41,8 +41,8 @@ final class WalletListViewController: UIViewController {
         )
     }
 
-    private func openWalletItem(index: Int) {
-        let vc = WalletItemViewController.make(index: index)
+    private func openWalletHistory(index: Int) {
+        let vc = WalletHistoryViewController.make(index: index)
         if let topViewContrller = UIApplication.topViewController() {
             topViewContrller.openViewController(vc, type: .push)
         }
@@ -80,7 +80,7 @@ extension WalletListViewController: ViewModelBindable {
         output
             .openWalletItem
             .drive(onNext: { [weak self] indexPath in
-                self?.openWalletItem(index: indexPath.row)
+                self?.openWalletHistory(index: indexPath.row)
             })
             .disposed(by: disposeBag)
     }

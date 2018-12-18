@@ -70,7 +70,7 @@
                                                             </subviews>
                                                         </stackView>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="tAt-Se-sv6" firstAttribute="centerX" secondItem="2bG-dL-XZ1" secondAttribute="centerX" id="8sE-Qu-WXr"/>
                                                         <constraint firstAttribute="height" constant="208" id="BYL-x2-euw"/>

@@ -27,9 +27,15 @@ extension NewWalletViewController {
     }
 }
 
+extension WalletHistoryViewController {
+    static func make(index: Int) -> WalletHistoryViewController {
+        return Container.shared.resolve(WalletHistoryViewController.self, argument: index)!
+    }
+}
+
 extension WalletItemViewController {
-    static func make() -> WalletItemViewController {
-        return Container.shared.resolve(WalletItemViewController.self)!
+    static func make(index: Int) -> WalletItemViewController {
+        return Container.shared.resolve(WalletItemViewController.self, argument: index)!
     }
 }
 
